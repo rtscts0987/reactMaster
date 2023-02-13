@@ -9,20 +9,23 @@ const Father = styled.div`
   align-items: center;
   `;
 
-const Btn = styled.button`
-  color:white;
-  background-color: ${props => props.bgColor};
-  border: none;
+const Input = styled.input.attrs({required:true})`
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px;
-  margin: 10px;
+  padding: 0 10px;
+  margin-bottom: 10px;
   `;
 
 function App() {
   return (
     <Father>
-      <Btn bgColor="red">Log in</Btn>
-      <Btn as="a" href="/" bgColor="red">sssfdafdsf</Btn>
+      <Input type="text" placeholder="Digite seu nome" />
+      <Input type="text" placeholder="Digite seu e-mail" />
+      <Input type="text" placeholder="Digite sua senha" />
+      <Input type="text" placeholder="Digite sua idade" />
+
     </Father>
   );
 }
