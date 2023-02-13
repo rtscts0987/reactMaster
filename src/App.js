@@ -1,32 +1,73 @@
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
-const Father = styled.div`
-  background-color: #fff;
-  width: 100%;
-  height: 100vh;
+const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  `;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+`;
 
-const Input = styled.input.attrs({required:true})`
-  width: 100%;
-  height: 50px;
-  border: 1px solid #ccc;
+const animation = keyframes`
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+`;
+
+const rotationAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`;
+
+
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  background-color: tomato;
   border-radius: 5px;
-  padding: 0 10px;
-  margin-bottom: 10px;
-  `;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  animation: ${animation} 1s ease-in-out infinite;
+  span {
+    font-size: 100px;
+    animation: ${rotationAnimation} 1s ease-in-out infinite;
+    &:hover {
+      font-size: 200px;
+      animation-play-state: paused;
+    }
+    &:active {
+      opacity: 0;
+    }
+  }
+  
+`;
 
 function App() {
   return (
-    <Father>
-      <Input type="text" placeholder="Digite seu nome" />
-      <Input type="text" placeholder="Digite seu e-mail" />
-      <Input type="text" placeholder="Digite sua senha" />
-      <Input type="text" placeholder="Digite sua idade" />
+    <Wrapper>
+      <Box>
+        <span>🤣</span>
+      </Box>
 
-    </Father>
+    </Wrapper>
   );
 }
 
