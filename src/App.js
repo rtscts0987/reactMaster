@@ -9,24 +9,20 @@ const Father = styled.div`
   align-items: center;
   `;
 
-const Box = styled.div`
+const Btn = styled.button`
+  color:white;
   background-color: ${props => props.bgColor};
-  width: 100px;
-  height: 100px;
-  `;
-
-const Circle = styled(Box)`
-  background-color: ${props => props.bgColor};
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
   `;
 
 function App() {
   return (
     <Father>
-      <Box bgColor="teal" />
-      <Circle bgColor="tomato" />
+      <Btn bgColor="red">Log in</Btn>
+      <Btn as="a" href="/" bgColor="red">sssfdafdsf</Btn>
     </Father>
   );
 }
