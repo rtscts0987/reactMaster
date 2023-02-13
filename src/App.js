@@ -1,12 +1,17 @@
 import styled, {keyframes} from 'styled-components';
 
+const Title = styled.h1`
+  color: ${props => props.theme.textColor};
+  background-color: ${props => props.theme.backgroundColor};
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #f5f5f5;
+  background-color: ${props => props.theme.backgroundColor};
 `;
 
 const animation = keyframes`
@@ -67,9 +72,7 @@ const Box = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Box>
-        <Emoji>🤣</Emoji>
-      </Box>
+      <Title>Ha hahahah</Title>
 
     </Wrapper>
   );
