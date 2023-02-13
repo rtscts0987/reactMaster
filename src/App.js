@@ -9,29 +9,24 @@ const Father = styled.div`
   align-items: center;
   `;
 
-const BoxOne = styled.div`
-  background-color: teal;
+const Box = styled.div`
+  background-color: ${props => props.bgColor};
   width: 100px;
   height: 100px;
   `;
 
-const BoxTwo = styled.div`
-  background-color: tomato;
+const Circle = styled(Box)`
+  background-color: ${props => props.bgColor};
   width: 100px;
   height: 100px;
-  `;
-
-const Text = styled.span`
-  color: #fff;
+  border-radius: 50%;
   `;
 
 function App() {
   return (
     <Father>
-      <BoxOne>
-        <Text>Text</Text>
-      </BoxOne>
-      <BoxTwo />
+      <Box bgColor="teal" />
+      <Circle bgColor="tomato" />
     </Father>
   );
 }
