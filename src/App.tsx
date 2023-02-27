@@ -23,8 +23,6 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-
-}
 /* HTML5 hidden-attribute fix for newer browsers */
 *[hidden] {
     display: none;
@@ -58,6 +56,7 @@ body {
 }
 a {
   text-decoration: none;
+  color: inherit;
 }
 `;
 
