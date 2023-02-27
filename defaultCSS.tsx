@@ -1,8 +1,11 @@
-import { createGlobalStyle } from 'styled-components';
-import Router from './Router';
+import { css, createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+// prettier-ignore
+export const reset = css`
+/* http://meyerweb.com/eric/tools/css/reset/
+   v5.0.1 | 20191019
+   License: none (public domain)
+*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +26,10 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
-
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+  display: block;
 }
 /* HTML5 hidden-attribute fix for newer browsers */
 *[hidden] {
@@ -47,27 +53,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-* {
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: ${props => props.theme.bgColor};
-  color: ${props => props.theme.textColor};
-  
-}
-a {
-  text-decoration: none;
-}
-`;
+`
 
-function App() {
-  return (
-  <>
-    <GlobalStyle />
-    <Router />
-  </>
-  );
-}
+export const Reset = createGlobalStyle`${reset}`
 
-export default App;
+export default reset
