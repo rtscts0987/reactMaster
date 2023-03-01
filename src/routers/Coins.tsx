@@ -25,7 +25,8 @@ const Coin = styled.li`
     a {
         padding: 20px;
         transition: color 0.2s ease-in;
-        display: block;
+        display: flex;
+        align-items: center;
     }
     &:hover {
         a {
@@ -38,6 +39,12 @@ const Coin = styled.li`
 const Title = styled.h1`
     font-size: 50px;
     color:${(props) => props.theme.accentColor};
+`;
+
+const Img = styled.img`
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
 `;
 
 const Lodder = styled.span`
@@ -61,15 +68,12 @@ function Coins() {
     const [coins, setCoins] = useState<CoinInterface[]>([]);
     const [loding, setLoding] = useState(true);
     useEffect( () => {
-        //imsi use
-        // (async() => {
-        //     const response = await fetch("https://api.coinpaprika.com/v1/coins");
-        //     let json = await response.json();
-        //     
-        //     json = imsi;
-        //     setCoins(json.slice(0,100));
-        //     setLoding(false);
-        // })();
+        (async() => {
+            const response = await fetch("https://api.coinpaprika.com/v1/coins");
+            let json = await response.json();
+            setCoins(json.slice(0,100));
+            setLoding(false);
+        })();
         const json = imsi;
         setCoins(json.slice(0,100));
         setLoding(false);
@@ -85,7 +89,17 @@ function Coins() {
                 <CoinsList>
                     {coins.map(coin => 
                         <Coin key={coin.id}>
-                            <Link to={`/${coin.id}`}>{coin.name} &rarr;</Link> 
+                            <Link
+                                to={{
+                                pathname: `/${coin.id}`,
+                                state: { name: coin.name },
+                                }}
+                            >
+                                <Img
+                                src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                                />
+                                {coin.name} &rarr;
+                            </Link>
                         </Coin> )}
                     
                 </CoinsList>
